@@ -14,6 +14,15 @@ The drivers used or available in this code example are listed below.
 - [JPEG decode driver user guide (TRAVEO™ T2G cluster series)](https://www.infineon.com/assets/row/public/documents/10/44/infineon-traveo-t2g-jpeg-decode-user-guide-usermanual-en.pdf?fileId=8ac78c8c8c3de074018c816028cf0ca8)
   - Chapter 2: JPEG decode driver
 
+## Requirements
+
+- [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) v3.5 or later (tested with v3.5)
+- This code example uses [TRAVEO&trade; T2G Virtual Display Tool](https://softwaretools-preview.icp.infineon.com/tools/com.ifx.tb.tool.traveot2gvirtualdisplaytool) to output image. This Tool is available only on Windows.
+
+## Supported toolchains (make variable 'TOOLCHAIN')
+
+- GNU Arm&reg; Embedded Compiler v11.3.1 (`GCC_ARM`) – Default value of `TOOLCHAIN`
+
 ## Device
 
 The device used in this code example (CE) is:
@@ -67,6 +76,12 @@ CYGFX_ERROR CyGfx_BeSetGeoMatrix(CYGFX_BE_CONTEXT beCtx, CYGFX_BE_TARGET target,
 
 CYGFX_ERROR CyGfx_WinSetGeoMatrix(CYGFX_WINDOW win, CYGFX_U32 target, const CYGFX_FLOAT* matrix)
 ```
+
+More details can be found in:
+- TRAVEO&trade; T2G CYT4DN
+    - [Technical Reference Manual (TRM)](https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-cluster/t2g-cyt4dn#documents)
+    - [Registers TRM](https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-cluster/t2g-cyt4dn#documents)
+    - [Data Sheet](https://www.infineon.com/products/microcontroller/32-bit-traveo-t2g-arm-cortex/for-cluster/t2g-cyt4dn#documents)
 
 ## Hardware setup
 
