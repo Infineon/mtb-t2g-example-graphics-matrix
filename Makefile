@@ -46,7 +46,7 @@ TARGET=APP_KIT_T2G_C-2D-6M_LITE
 #
 # If APPNAME is edited, ensure to update or regenerate launch
 # configurations for your IDE.
-APPNAME=pdl_cyt4dn_mtb_graphics_matrix
+APPNAME=pdl_mtb_graphics-matrix
 
 # Name of toolchain to use. Options include:
 #

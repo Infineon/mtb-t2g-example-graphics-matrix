@@ -1,6 +1,6 @@
 /**********************************************************************************************************************
  * \file gfx.c
- * \copyright Copyright (C) Infineon Technologies AG 2019
+ * \copyright Copyright (C) Infineon Technologies AG 2026
  *
  * Use of this file is subject to the terms of use agreed between (i) you or the company in which ordinary course of
  * business you are acting and (ii) Infineon Technologies AG or its licensees. If and as long as no such terms of use
@@ -57,8 +57,8 @@
 #define DISPLAY_WIDTH           (800)
 #define DISPLAY_HEIGHT          (480)
 
-#define WINDOW_WIDTH            (800)
-#define WINDOW_HEIGHT           (480)
+#define WINDOW_WIDTH            (600)
+#define WINDOW_HEIGHT           (300)
 
 #define TASK_INSTR_BUFFER_SIZE  (16 * 1024)
 
@@ -417,15 +417,24 @@ static CYGFX_ERROR initSurfaces(void)
     
     /* Framebuffer 0 */
     UTIL_SUCCESS(ret, utSmGenSurfaceObjects(1, &db.surfFramebuffer[0]));
+#if defined (CY_DEVICE_TVIIC2D4M)
+    UTIL_SUCCESS(ret, utSurfCreateBuffer(db.surfFramebuffer[0], WINDOW_WIDTH, WINDOW_HEIGHT,
+         CYGFX_SM_FORMAT_R8G8B8));
+#elif defined(CY_DEVICE_TVIIC2D6M)
     UTIL_SUCCESS(ret, utSurfCreateBuffer(db.surfFramebuffer[0], DISPLAY_WIDTH, DISPLAY_HEIGHT,
          CYGFX_SM_FORMAT_R8G8B8));
+#endif
     UTIL_SUCCESS(ret, CyGfx_BeBindSurface(ctx, CYGFX_BE_TARGET_STORE | CYGFX_BE_TARGET_DST, db.surfFramebuffer[0]));
     
     /* Framebuffer 1 */
     UTIL_SUCCESS(ret, utSmGenSurfaceObjects(1, &db.surfFramebuffer[1]));
+#if defined (CY_DEVICE_TVIIC2D4M)
+    UTIL_SUCCESS(ret, utSurfCreateBuffer(db.surfFramebuffer[1], WINDOW_WIDTH, WINDOW_HEIGHT,
+         CYGFX_SM_FORMAT_R8G8B8));
+#elif defined(CY_DEVICE_TVIIC2D6M)
     UTIL_SUCCESS(ret, utSurfCreateBuffer(db.surfFramebuffer[1], DISPLAY_WIDTH, DISPLAY_HEIGHT,
          CYGFX_SM_FORMAT_R8G8B8));
-    
+#endif         
     /* Infineon Logo */
     UTIL_SUCCESS(ret, utSmGenSurfaceObjects(1, &surfIfx));
     UTIL_SUCCESS(ret, utSurfLoadBitmap(surfIfx, ifx_logo_color, false));
